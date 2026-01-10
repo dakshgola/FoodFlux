@@ -28,17 +28,21 @@ const FoodPartnerLogin = () => {
     <div className="auth-page-wrapper">
       <div className="auth-card" role="region" aria-labelledby="partner-login-title">
         <header>
-          <h1 id="partner-login-title" className="auth-title">Partner login</h1>
+          <div id="partner-login-title" className="brand-logo">FoodFlux</div>
           <p className="auth-subtitle">Access your dashboard and manage orders.</p>
         </header>
         <form className="auth-form" onSubmit={handleSubmit} noValidate>
           <div className="field-group">
-            <label htmlFor="email">Email</label>
-            <input id="email" name="email" type="email" placeholder="business@example.com" autoComplete="email" />
+            <div className="floating-input">
+              <input id="email" name="email" type="email" placeholder=" " autoComplete="email" />
+              <label htmlFor="email">Email</label>
+            </div>
           </div>
           <div className="field-group">
-            <label htmlFor="password">Password</label>
-            <input id="password" name="password" type="password" placeholder="Password" autoComplete="current-password" />
+            <div className="floating-input">
+              <input id="password" name="password" type="password" placeholder=" " autoComplete="current-password" />
+              <label htmlFor="password">Password</label>
+            </div>
           </div>
           <button className="auth-submit" type="submit">Sign In</button>
         </form>

@@ -39,7 +39,7 @@ const FoodPartnerRegister = () => {
     <div className="auth-page-wrapper">
       <div className="auth-card" role="region" aria-labelledby="partner-register-title">
         <header>
-          <h1 id="partner-register-title" className="auth-title">Partner sign up</h1>
+          <div id="partner-register-title" className="brand-logo">FoodFlux</div>
           <p className="auth-subtitle">Grow your business with our platform.</p>
         </header>
         <nav className="auth-alt-action" style={{marginTop: '-4px'}}>
@@ -47,30 +47,42 @@ const FoodPartnerRegister = () => {
         </nav>
         <form className="auth-form" onSubmit={handleSubmit} noValidate>
           <div className="field-group">
-            <label htmlFor="businessName">Business Name</label>
-            <input id="businessName" name="businessName" placeholder="Tasty Bites" autoComplete="organization" />
+            <div className="floating-input">
+              <input id="businessName" name="businessName" placeholder=" " autoComplete="organization" />
+              <label htmlFor="businessName">Business Name</label>
+            </div>
           </div>
           <div className="two-col">
             <div className="field-group">
-              <label htmlFor="contactName">Contact Name</label>
-              <input id="contactName" name="contactName" placeholder="Jane Doe" autoComplete="name" />
+              <div className="floating-input">
+                <input id="contactName" name="contactName" placeholder=" " autoComplete="name" />
+                <label htmlFor="contactName">Contact Name</label>
+              </div>
             </div>
             <div className="field-group">
-              <label htmlFor="phone">Phone</label>
-              <input id="phone" name="phone" placeholder="+1 555 123 4567" autoComplete="tel" />
+              <div className="floating-input">
+                <input id="phone" name="phone" placeholder=" " autoComplete="tel" />
+                <label htmlFor="phone">Phone</label>
+              </div>
             </div>
           </div>
-            <div className="field-group">
+          <div className="field-group">
+            <div className="floating-input">
+              <input id="email" name="email" type="email" placeholder=" " autoComplete="email" />
               <label htmlFor="email">Email</label>
-              <input id="email" name="email" type="email" placeholder="business@example.com" autoComplete="email" />
             </div>
-          <div className="field-group">
-            <label htmlFor="password">Password</label>
-            <input id="password" name="password" type="password" placeholder="Create password" autoComplete="new-password" />
           </div>
           <div className="field-group">
-            <label htmlFor="address">Address</label>
-            <input id="address" name="address" placeholder="123 Market Street" autoComplete="street-address" />
+            <div className="floating-input">
+              <input id="password" name="password" type="password" placeholder=" " autoComplete="new-password" />
+              <label htmlFor="password">Password</label>
+            </div>
+          </div>
+          <div className="field-group">
+            <div className="floating-input">
+              <input id="address" name="address" placeholder=" " autoComplete="street-address" />
+              <label htmlFor="address">Address</label>
+            </div>
             <p className="small-note">Full address helps customers find you faster.</p>
           </div>
           <button className="auth-submit" type="submit">Create Partner Account</button>

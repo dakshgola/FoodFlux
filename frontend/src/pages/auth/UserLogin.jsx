@@ -28,17 +28,21 @@ const UserLogin = () => {
     <div className="auth-page-wrapper">
       <div className="auth-card" role="region" aria-labelledby="user-login-title">
         <header>
-          <h1 id="user-login-title" className="auth-title">Welcome back</h1>
+          <div className="brand-logo" id="user-login-title">FoodFlux</div>
           <p className="auth-subtitle">Sign in to continue your food journey.</p>
         </header>
         <form className="auth-form" onSubmit={handleSubmit} noValidate>
           <div className="field-group">
-            <label htmlFor="email">Email</label>
-            <input id="email" name="email" type="email" placeholder="you@example.com" autoComplete="email" />
+            <div className="floating-input">
+              <input id="email" name="email" type="email" placeholder=" " autoComplete="email" />
+              <label htmlFor="email">Email</label>
+            </div>
           </div>
           <div className="field-group">
-            <label htmlFor="password">Password</label>
-            <input id="password" name="password" type="password" placeholder="••••••••" autoComplete="current-password" />
+            <div className="floating-input">
+              <input id="password" name="password" type="password" placeholder=" " autoComplete="current-password" />
+              <label htmlFor="password">Password</label>
+            </div>
           </div>
           <button className="auth-submit" type="submit">Sign In</button>
         </form>

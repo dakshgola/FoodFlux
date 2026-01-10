@@ -36,7 +36,7 @@ const UserRegister = () => {
         <div className="auth-page-wrapper">
             <div className="auth-card" role="region" aria-labelledby="user-register-title">
                 <header>
-                    <h1 id="user-register-title" className="auth-title">Create your account</h1>
+                    <div id="user-register-title" className="brand-logo">FoodFlux</div>
                     <p className="auth-subtitle">Join to explore and enjoy delicious meals.</p>
                 </header>
                 <nav className="auth-alt-action" style={{ marginTop: '-4px' }}>
@@ -45,21 +45,29 @@ const UserRegister = () => {
                 <form className="auth-form" onSubmit={handleSubmit} noValidate>
                     <div className="two-col">
                         <div className="field-group">
-                            <label htmlFor="firstName">First Name</label>
-                            <input id="firstName" name="firstName" placeholder="Jane" autoComplete="given-name" />
+                            <div className="floating-input">
+                                <input id="firstName" name="firstName" placeholder=" " autoComplete="given-name" />
+                                <label htmlFor="firstName">First Name</label>
+                            </div>
                         </div>
                         <div className="field-group">
-                            <label htmlFor="lastName">Last Name</label>
-                            <input id="lastName" name="lastName" placeholder="Doe" autoComplete="family-name" />
+                            <div className="floating-input">
+                                <input id="lastName" name="lastName" placeholder=" " autoComplete="family-name" />
+                                <label htmlFor="lastName">Last Name</label>
+                            </div>
                         </div>
                     </div>
                     <div className="field-group">
-                        <label htmlFor="email">Email</label>
-                        <input id="email" name="email" type="email" placeholder="you@example.com" autoComplete="email" />
+                        <div className="floating-input">
+                            <input id="email" name="email" type="email" placeholder=" " autoComplete="email" />
+                            <label htmlFor="email">Email</label>
+                        </div>
                     </div>
                     <div className="field-group">
-                        <label htmlFor="password">Password</label>
-                        <input id="password" name="password" type="password" placeholder="••••••••" autoComplete="new-password" />
+                        <div className="floating-input">
+                            <input id="password" name="password" type="password" placeholder=" " autoComplete="new-password" />
+                            <label htmlFor="password">Password</label>
+                        </div>
                     </div>
                     <button className="auth-submit" type="submit">Sign Up</button>
                 </form>
