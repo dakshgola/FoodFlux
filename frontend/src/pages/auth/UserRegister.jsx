@@ -34,6 +34,10 @@ const UserRegister = () => {
 
     return (
         <div className="auth-page-wrapper">
+            <div className="bg-orbs" aria-hidden="true">
+                <span className="orb-1" />
+                <span className="orb-2" />
+            </div>
             <div className="auth-card" role="region" aria-labelledby="user-register-title">
                 <header>
                     <div id="user-register-title" className="brand-logo">FoodFlux</div>

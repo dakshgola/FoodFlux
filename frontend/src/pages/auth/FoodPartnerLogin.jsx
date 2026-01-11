@@ -26,6 +26,10 @@ const FoodPartnerLogin = () => {
 
   return (
     <div className="auth-page-wrapper">
+      <div className="bg-orbs" aria-hidden="true">
+        <span className="orb-1" />
+        <span className="orb-3" />
+      </div>
       <div className="auth-card" role="region" aria-labelledby="partner-login-title">
         <header>
           <div id="partner-login-title" className="brand-logo">FoodFlux</div>

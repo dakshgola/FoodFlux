@@ -1,11 +1,19 @@
-* {
-  margin: 0%;
-  padding: 0%;
-  box-sizing: border-box;
-}
+/* Modern, minimal reset + accessibility defaults */
+:where(*, *::before, *::after){ box-sizing: border-box }
+html,body,#root{ height:100%; width:100% }
+html{ -webkit-text-size-adjust:100%; -ms-text-size-adjust:100% }
+body{ margin:0; font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; background-attachment:fixed }
+img,video{ max-width:100%; display:block }
+button{ font:inherit }
+input,textarea,select{ font:inherit }
 
-html,
-body {
-  height: 100%;
-  width: 100%;
-}
+/* Route container helpers */
+.page-enter{ opacity:0; transform:translateY(8px) scale(.995) }
+.page-enter-active{ opacity:1; transform:none; transition: opacity 320ms ease, transform 320ms cubic-bezier(.2,.8,.2,1) }
+.page-exit{ opacity:1 }
+.page-exit-active{ opacity:0; transition: opacity 220ms ease }
+
+/* Root utility spacing */
+.container{ max-width:1200px; margin:0 auto; padding:clamp(16px,3vw,32px) }
+
+/* Keep default focus visible but styled in theme.css */

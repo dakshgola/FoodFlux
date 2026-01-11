@@ -5,6 +5,10 @@ import '../../styles/auth-shared.css';
 const ChooseRegister = () => {
   return (
     <div className="auth-page-wrapper">
+      <div className="bg-orbs" aria-hidden="true">
+        <span className="orb-1" />
+        <span className="orb-2" />
+      </div>
       <div className="auth-card" role="region" aria-labelledby="choose-register-title">
         <header>
           <div id="choose-register-title" className="brand-logo">FoodFlux</div>

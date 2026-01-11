@@ -76,6 +76,7 @@ const ReelFeed = ({ items = [], onLike, onSave, emptyMessage = 'No videos yet.' 
               <div className="video-progress" aria-hidden="true">
                 <div className="ring" />
               </div>
+              {/* play overlay removed (non-functional) */}
               <div className="double-tap-heart" aria-hidden="true">
                 <svg width="96" height="96" viewBox="0 0 24 24" fill="none" stroke="url(#g)" strokeWidth="0" xmlns="http://www.w3.org/2000/svg">
                   <defs>
@@ -92,9 +93,21 @@ const ReelFeed = ({ items = [], onLike, onSave, emptyMessage = 'No videos yet.' 
               <div className="reel-actions">
                 <div className="reel-action-group">
                   <button
-                    onClick={onLike ? () => onLike(item) : undefined}
+                    onClick={(e) => {
+                      // call existing handler (no logic changed)
+                      if (onLike) onLike(item)
+                      // UI-only optimistic toggle: flip data-liked and aria-pressed on the button
+                      try {
+                        const btn = e.currentTarget;
+                        const current = btn.getAttribute('data-liked') === 'true';
+                        btn.setAttribute('data-liked', String(!current));
+                        btn.setAttribute('aria-pressed', String(!current));
+                      } catch (err) { /* silent */ }
+                    }}
                     className="reel-action"
                     aria-label="Like"
+                    aria-pressed={!!(item.liked || item.isLiked || item.userLiked)}
+                    data-liked={!!(item.liked || item.isLiked || item.userLiked)}
                   >
                     <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                       <path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 22l7.8-8.6 1-1a5.5 5.5 0 0 0 0-7.8z" />
@@ -108,8 +121,18 @@ const ReelFeed = ({ items = [], onLike, onSave, emptyMessage = 'No videos yet.' 
                 <div className="reel-action-group">
                   <button
                     className="reel-action"
-                    onClick={onSave ? () => onSave(item) : undefined}
+                    onClick={(e) => {
+                      if (onSave) onSave(item)
+                      try {
+                        const btn = e.currentTarget;
+                        const current = btn.getAttribute('data-saved') === 'true';
+                        btn.setAttribute('data-saved', String(!current));
+                        btn.setAttribute('aria-pressed', String(!current));
+                      } catch (err) { /* silent */ }
+                    }}
                     aria-label="Bookmark"
+                    aria-pressed={!!(item.saved || item.isSaved || item.userSaved)}
+                    data-saved={!!(item.saved || item.isSaved || item.userSaved)}
                   >
                     <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                       <path d="M6 3h12a1 1 0 0 1 1 1v17l-7-4-7 4V4a1 1 0 0 1 1-1z" />

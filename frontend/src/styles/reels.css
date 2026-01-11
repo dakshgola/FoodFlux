@@ -8,6 +8,10 @@
 
 .reel-video{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center; z-index:0 }
 
+/* Video card border glow + rounded elevated look */
+.reel-video{ border-radius:24px; box-shadow: 0 20px 50px rgba(2,6,23,0.6); transition: transform var(--t-fast), box-shadow var(--t-fast) }
+.reel:hover .reel-video{ transform: translateY(-6px) scale(1.005); box-shadow: 0 40px 100px rgba(2,6,23,0.75) }
+
 /* gradient overlay to ensure readability */
 .reel-overlay{ position:absolute; inset:0; pointer-events:none; z-index:2 }
 .reel-overlay::before{ content:''; position:absolute; inset:0; background: linear-gradient(180deg, rgba(2,6,23,0.05) 0%, rgba(2,6,23,0.18) 40%, rgba(2,6,23,0.6) 100%); z-index:1 }
@@ -35,6 +39,10 @@
 
 /* glassy info panel */
 .reel-meta{ align-self:flex-start; padding:10px 14px; border-radius:12px; background:linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02)); backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px); border:1px solid rgba(255,255,255,0.06); box-shadow:var(--shadow-1) }
+
+/* Make reel meta slightly glassier and animated on entrance */
+.reel-meta{ animation: fadeIn .5s var(--t-base) both }
+.reel-title{ font-family:var(--font-head); font-weight:700; background: linear-gradient(90deg,var(--primary-light),var(--primary)); -webkit-background-clip:text; background-clip:text; color:transparent }
 
 /* CTA */
 .reel-btn{ margin-top:6px }

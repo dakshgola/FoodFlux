@@ -1,16 +1,20 @@
 @import './theme.css';
 
-.bottom-nav{ position:fixed; left:12px; right:12px; bottom:14px; height:64px; display:flex; align-items:center; justify-content:center; z-index:60 }
-.bottom-nav__inner{ width:100%; max-width:720px; display:grid; grid-template-columns: repeat(5, 1fr); gap:8px; background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); border-radius:999px; padding:8px; border:1px solid rgba(255,255,255,0.06); box-shadow:0 10px 30px rgba(2,6,23,0.6) }
 
-.bottom-nav__item{ display:flex; flex-direction:column; align-items:center; justify-content:center; color:var(--text-secondary); text-decoration:none; gap:4px; padding:6px 8px; border-radius:12px; transition: transform var(--t-fast), color var(--t-fast) }
-.bottom-nav__item:hover{ transform:translateY(-4px) }
-.bottom-nav__icon{ width:44px; height:44px; display:grid; place-items:center; border-radius:10px }
-.bottom-nav__label{ font-size:11px }
+.bottom-nav{ position:fixed; left:0; right:0; bottom:18px; height:72px; display:flex; align-items:center; justify-content:center; z-index:60; pointer-events:auto }
+.bottom-nav__inner{ display:flex; gap:12px; align-items:center; justify-content:center; background:linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01)); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-radius:999px; padding:10px 14px; border:1px solid rgba(255,255,255,0.06); box-shadow:0 18px 50px rgba(2,6,23,0.55); min-width:280px }
 
-.bottom-nav__item.is-active{ color:var(--primary); background:linear-gradient(90deg, color-mix(in srgb,var(--primary) 18%, transparent), rgba(0,0,0,0.02)); box-shadow:0 8px 30px rgba(99,102,241,0.12) }
+.bottom-nav__item{ display:flex; flex-direction:column; align-items:center; justify-content:center; color:var(--text-secondary); text-decoration:none; gap:6px; padding:8px 14px; border-radius:12px; transition: transform var(--transition-fast), color var(--transition-fast), background var(--transition-fast) }
+.bottom-nav__item:hover{ transform:translateY(-6px) }
+.bottom-nav__icon{ width:46px; height:46px; display:grid; place-items:center; border-radius:12px }
+.bottom-nav__label{ font-size:12px }
 
-.nav-badge{ position:absolute; top:6px; right:6px; background:var(--accent); color:#fff; font-size:11px; padding:4px 6px; border-radius:999px; box-shadow:0 6px 18px rgba(0,0,0,0.4); animation:badgePulse 1400ms ease-in-out infinite }
+.bottom-nav__item.is-active{ color:var(--primary); background: linear-gradient(90deg, rgba(139,92,246,0.10), rgba(124,58,237,0.04)); box-shadow: 0 12px 40px rgba(99,102,241,0.08); transform: translateY(-6px) scale(1.03) }
+
+/* Active indicator line under active item */
+.bottom-nav__item.is-active::after{ content:''; position:absolute; bottom:8px; left:50%; transform:translateX(-50%); width:28px; height:3px; background:linear-gradient(90deg,var(--primary),var(--primary-dark)); border-radius:999px }
+
+.nav-badge{ position:absolute; top:6px; right:6px; background:var(--accent-pink); color:#fff; font-size:11px; padding:4px 6px; border-radius:999px; box-shadow:0 6px 18px rgba(0,0,0,0.4); animation:badgePulse 1400ms ease-in-out infinite }
 
 @keyframes badgePulse{ 0%{ transform:scale(1); opacity:1 } 50%{ transform:scale(1.07); opacity:.9 } 100%{ transform:scale(1); opacity:1 } }
 
