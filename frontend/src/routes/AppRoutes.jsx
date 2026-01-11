@@ -24,6 +24,9 @@ const AppRoutes = () => {
                 <Route path="/saved" element={<><Saved /><BottomNav /></>} />
                 <Route path="/create-food" element={<CreateFood />} />
                 <Route path="/food-partner/:id" element={<Profile />} />
+                 {/* 🔥 FIX FOR RENDER */}
+  <Route path="/index.html" element={<Navigate to="/" replace />} />
+  <Route path="*" element={<Navigate to="/" replace />} />
             </Routes>
         </Router>
     )
