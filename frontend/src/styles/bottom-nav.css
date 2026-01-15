@@ -20,3 +20,5 @@
 
 /* Safe area for iOS */
 @supports(padding: max(0px)) { .bottom-nav{ padding-bottom: max(env(safe-area-inset-bottom), 12px) } }
+
+

@@ -1,28 +1,28 @@
-import React from 'react';
-import '../../styles/auth-shared.css';
-import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import React from 'react'
+import '../../styles/auth-shared.css'
+import axios from 'axios'
+import { useNavigate } from 'react-router-dom'
 
 const UserLogin = () => {
-
-  const navigate = useNavigate();
+  const navigate = useNavigate()
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
+    e.preventDefault()
 
-    const email = e.target.email.value;
-    const password = e.target.password.value;
+    const email = e.target.email.value
+    const password = e.target.password.value
 
-    const response = await axios.post("http://localhost:3000/api/auth/user/login", {
-      email,
-      password
-    }, { withCredentials: true });
+    const response = await axios.post(
+      'http://localhost:3000/api/auth/user/login',
+      { email, password },
+      { withCredentials: true }
+    )
 
-    console.log(response.data);
+    console.log(response.data)
 
-    navigate("/"); // Redirect to home after login
-
-  };
+    // ✅ SaaS redirect
+    navigate('/app/home')
+  }
 
   return (
     <div className="auth-page-wrapper">
@@ -31,32 +31,37 @@ const UserLogin = () => {
         <span className="orb-2" />
         <span className="orb-3" />
       </div>
-      <div className="auth-card" role="region" aria-labelledby="user-login-title">
+
+      <div className="auth-card">
         <header>
-          <div className="brand-logo" id="user-login-title">FoodFlux</div>
-          <p className="auth-subtitle">Sign in to continue your food journey.</p>
+          <div className="brand-logo">FoodFlux</div>
+          <p className="auth-subtitle">
+            Sign in to continue your food journey.
+          </p>
         </header>
-        <form className="auth-form" onSubmit={handleSubmit} noValidate>
-          <div className="field-group">
-            <div className="floating-input">
-              <input id="email" name="email" type="email" placeholder=" " autoComplete="email" />
-              <label htmlFor="email">Email</label>
-            </div>
+
+        <form className="auth-form" onSubmit={handleSubmit}>
+          <div className="floating-input">
+            <input name="email" type="email" placeholder=" " required />
+            <label>Email</label>
           </div>
-          <div className="field-group">
-            <div className="floating-input">
-              <input id="password" name="password" type="password" placeholder=" " autoComplete="current-password" />
-              <label htmlFor="password">Password</label>
-            </div>
+
+          <div className="floating-input">
+            <input name="password" type="password" placeholder=" " required />
+            <label>Password</label>
           </div>
-          <button className="auth-submit" type="submit">Sign In</button>
+
+          <button className="auth-submit" type="submit">
+            Sign In
+          </button>
         </form>
+
         <div className="auth-alt-action">
           New here? <a href="/user/register">Create account</a>
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default UserLogin;
+export default UserLogin

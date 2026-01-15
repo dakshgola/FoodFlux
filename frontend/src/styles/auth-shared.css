@@ -76,3 +76,13 @@ button.auth-submit:hover{ transform:translateY(-3px); box-shadow:0 16px 48px rgb
 
 /* keep transitions smooth */
 body, .auth-card, .field-group input { transition: background 200ms ease, color 200ms ease, border-color 200ms ease }
+
+.auth-submit.secondary {
+  background: transparent;
+  border: 1px solid rgba(155,108,255,0.5);
+  color: #9b6cff;
+}
+
+.auth-submit.secondary:hover {
+  background: rgba(155,108,255,0.1);
+}

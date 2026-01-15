@@ -1,0 +1,64 @@
+.pd-wrapper {
+  min-height: 100vh;
+  padding: 32px;
+  background: linear-gradient(135deg, #0b0b14, #000);
+  color: white;
+}
+
+.pd-title {
+  font-size: 28px;
+  margin-bottom: 24px;
+}
+
+.pd-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+.pd-card {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 14px;
+  padding: 16px;
+}
+
+.pd-card span {
+  font-size: 13px;
+  color: #aaa;
+}
+
+.pd-card strong {
+  font-size: 24px;
+}
+
+.pd-videos {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 20px;
+}
+
+.pd-video-card {
+  background: rgba(0,0,0,0.5);
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.08);
+}
+
+.pd-video-card video {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.pd-video-info {
+  padding: 12px;
+}
+
+.pd-metrics {
+  margin-top: 8px;
+  font-size: 14px;
+  display: flex;
+  gap: 12px;
+}

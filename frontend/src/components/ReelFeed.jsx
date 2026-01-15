@@ -58,36 +58,27 @@ const ReelFeed = ({ items = [], onLike, onSave, emptyMessage = 'No videos yet.' 
             
             {/* ✅ FIXED VIDEO */}
             <video
-              ref={setVideoRef(item._id)}
-              className="reel-video"
-              muted
-              autoPlay
-              loop
-              playsInline
-              preload="auto"
-            >
-              <source
-                src={getVideoUrl(item.video)}
-                type="video/mp4"
-              />
-            </video>
+  ref={setVideoRef(item._id)}
+  className="reel-video"
+  muted
+  playsInline
+  loop
+  preload="metadata"
+  onCanPlay={(e) => e.currentTarget.play().catch(() => {})}
+>
+  <source src={getVideoUrl(item.video)} type="video/mp4" />
+</video>
+
 
             <div className="reel-overlay">
               <div className="video-progress" aria-hidden="true">
                 <div className="ring" />
               </div>
               {/* play overlay removed (non-functional) */}
-              <div className="double-tap-heart" aria-hidden="true">
-                <svg width="96" height="96" viewBox="0 0 24 24" fill="none" stroke="url(#g)" strokeWidth="0" xmlns="http://www.w3.org/2000/svg">
-                  <defs>
-                    <linearGradient id="g" x1="0" x2="1">
-                      <stop offset="0%" stopColor="#FF80BF" />
-                      <stop offset="100%" stopColor="#FF6AEF" />
-                    </linearGradient>
-                  </defs>
-                  <path d="M12 21s-6.716-4.35-9.06-7.062C-.4 9.69 2.8 5 7.5 5c2.26 0 3.99 1.257 4.5 2.237C12.51 6.257 14.24 5 16.5 5 21.2 5 24.4 9.69 21.06 13.938 18.716 16.65 12 21 12 21z" fill="url(#g)" />
-                </svg>
-              </div>
+
+              
+
+
               <div className="reel-overlay-gradient" aria-hidden="true" />
 
               <div className="reel-actions">
